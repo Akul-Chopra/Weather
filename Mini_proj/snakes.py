@@ -180,7 +180,31 @@ def gameloop():
             if len(snake_2_list) > snake_2_len:
                 del snake_2_list[0]
             
+            #Snakey collision    
+            if snake_1_x < 0 or snake_1_x > W_wd or snake_1_y < 0 or snake_1_y > W_ht:
+                game_Over = True
+            if snake_2_x < 0 or snake_2_x > W_wd or snake_2_y < 0 or snake_2_y > W_ht:
+                game_Over = True
+            if head_1 in snake_1_list[:-1]:
+                game_Over = True
+            if head_2 in snake_2_list[:-1]:
+                game_Over = True
             
+            #Results
+            if score_1 == 7:
+                game_Window.fill(black)
+                time.sleep(1)
+                text_on_screen('Player 1 WON !!', white, 350, 250)
+                text_on_screen('Press ENTER to play again', white, 250, 300)
+                del snake_2_list[:]
+                del snake_1_list[:]
+            elif score_2 == 7:
+                game_Window.fill(black)
+                time.sleep(1)
+                text_on_screen('Player 2 WON !!', white, 350, 250)
+                text_on_screen('Press ENTER to play again', white, 250, 300)
+                del snake_2_list[:]
+                del snake_1_list[:]
                   
             #Calling vegan_snakes    
             snake_form(game_Window, cyan, snake_1_list, snake_size)
