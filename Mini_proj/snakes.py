@@ -139,6 +139,14 @@ def gameloop():
                     if event.key == pygame.K_RETURN:
                         gameloop()
                         
+            #snakey_1 movement       
+            snake_1_x += vel_1_x
+            snake_1_y += vel_1_y
+            
+            #snakey_2 movement
+            snake_2_x += vel_2_x
+            snake_2_y += vel_2_y        
+            
             
                   
             #Calling vegan_snakes    
