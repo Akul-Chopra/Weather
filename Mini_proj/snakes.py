@@ -147,6 +147,23 @@ def gameloop():
             snake_2_x += vel_2_x
             snake_2_y += vel_2_y        
             
+            #Scoring, length increment, Apple generator        
+            if abs(snake_1_x-apple_x)<18 and abs(snake_1_y-apple_y)<18:
+                score_1 += 1
+                snake_1_len += 10
+                apple_x = random.randint(100, W_wd-100)
+                apple_y = random.randint(100, W_ht-100)
+            if abs(snake_2_x-apple_x)<18 and abs(snake_2_y-apple_y)<18:
+                score_2 += 1
+                snake_2_len += 10
+                apple_x = random.randint(100, W_wd-100)
+                apple_y = random.randint(100, W_ht-100)
+            
+            game_Window.fill(black) 
+            text_on_screen('Score I: '+str(score_1), white, 10, 10)
+            text_on_screen('Score II: '+str(score_2), white, 800, 10)
+            pygame.draw.circle(game_Window, red, [apple_x, apple_y], 10)
+            
             
                   
             #Calling vegan_snakes    
