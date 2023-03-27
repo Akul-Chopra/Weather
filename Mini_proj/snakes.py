@@ -164,6 +164,22 @@ def gameloop():
             text_on_screen('Score II: '+str(score_2), white, 800, 10)
             pygame.draw.circle(game_Window, red, [apple_x, apple_y], 10)
             
+            #Managing length
+            head_1 = []
+            head_1.append(snake_1_x)
+            head_1.append(snake_1_y)
+            snake_1_list.append(head_1)
+            
+            head_2 = []
+            head_2.append(snake_2_x)
+            head_2.append(snake_2_y)
+            snake_2_list.append(head_2)
+            
+            if len(snake_1_list) > snake_1_len:
+                del snake_1_list[0]   
+            if len(snake_2_list) > snake_2_len:
+                del snake_2_list[0]
+            
             
                   
             #Calling vegan_snakes    
